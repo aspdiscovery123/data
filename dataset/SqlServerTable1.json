@@ -1,0 +1,20 @@
+{
+	"name": "SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1_onprimese",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "EXe 5 dataflow"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "drugdata"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

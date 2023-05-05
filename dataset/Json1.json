@@ -1,0 +1,44 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linked_service_adl",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Exe_3 (onprime2adl)"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "output"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Age": {
+					"type": "string"
+				},
+				"Sex": {
+					"type": "string"
+				},
+				"BP": {
+					"type": "string"
+				},
+				"Cholesterol": {
+					"type": "string"
+				},
+				"NAK": {
+					"type": "string"
+				},
+				"Drug": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

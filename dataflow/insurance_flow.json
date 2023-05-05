@@ -1,0 +1,99 @@
+{
+	"name": "insurance_flow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "input",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "output",
+						"type": "DatasetReference"
+					},
+					"name": "southeast"
+				},
+				{
+					"dataset": {
+						"referenceName": "output",
+						"type": "DatasetReference"
+					},
+					"name": "northeast"
+				},
+				{
+					"dataset": {
+						"referenceName": "output",
+						"type": "DatasetReference"
+					},
+					"name": "southwest"
+				},
+				{
+					"dataset": {
+						"referenceName": "output",
+						"type": "DatasetReference"
+					},
+					"name": "nothest"
+				}
+			],
+			"transformations": [
+				{
+					"name": "southeast1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          age as string,",
+				"          sex as string,",
+				"          bmi as string,",
+				"          children as string,",
+				"          smoker as string,",
+				"          region as string,",
+				"          charges as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 split(equals(region,'southeast'),",
+				"     equals(region,'northeast'),",
+				"     equals(region,'southwest'),",
+				"     equals(region,'northwest'),",
+				"     disjoint: false) ~> southeast1@(southest, northeast, southwest, nothwest)",
+				"southeast1@southest sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> southeast",
+				"southeast1@northeast sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> northeast",
+				"southeast1@southwest sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> southwest",
+				"southeast1@nothwest sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> nothest"
+			]
+		}
+	}
+}

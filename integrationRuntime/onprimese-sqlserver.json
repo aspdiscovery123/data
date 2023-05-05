@@ -1,0 +1,6 @@
+{
+	"name": "onprimese-sqlserver",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

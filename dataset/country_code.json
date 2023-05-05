@@ -1,0 +1,36 @@
+{
+	"name": "country_code",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linked_service_blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Exe_6 (zomato data)"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "CountryCode.csv",
+				"container": "inputdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "cc",
+				"type": "String"
+			},
+			{
+				"name": "Country",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

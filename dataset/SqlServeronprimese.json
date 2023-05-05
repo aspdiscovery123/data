@@ -1,0 +1,66 @@
+{
+	"name": "SqlServeronprimese",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1_onprimese",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Exe_3 (onprime2adl)"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "crime_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "city_block",
+				"type": "nvarchar"
+			},
+			{
+				"name": "crime_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "crime_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "crime_location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "arrest",
+				"type": "bit"
+			},
+			{
+				"name": "domestic",
+				"type": "bit"
+			},
+			{
+				"name": "community_id",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "latitude",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "longitude",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "chicago_crimes_2021"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
