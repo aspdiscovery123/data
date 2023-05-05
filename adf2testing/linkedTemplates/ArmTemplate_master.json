@@ -63,6 +63,23 @@
 				2
 			]
 		},
+		"storage based trigger_properties_pipeline8_parameters_temp_perameter": {
+			"type": "array",
+			"defaultValue": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				89,
+				56,
+				2
+			]
+		},
+		"storage based trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/8446571f-23ec-4eb5-ad6a-6638043f3281/resourceGroups/adf_training/providers/Microsoft.Storage/storageAccounts/input2adf"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -143,6 +160,12 @@
 					},
 					"schedule_properties_pipeline8_parameters_temp_perameter": {
 						"value": "[parameters('schedule_properties_pipeline8_parameters_temp_perameter')]"
+					},
+					"storage based trigger_properties_pipeline8_parameters_temp_perameter": {
+						"value": "[parameters('storage based trigger_properties_pipeline8_parameters_temp_perameter')]"
+					},
+					"storage based trigger_properties_typeProperties_scope": {
+						"value": "[parameters('storage based trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
