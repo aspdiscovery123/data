@@ -38,8 +38,16 @@
 		"linked_service_adl_properties_typeProperties_url": {
 			"value": "https://datalake3adftraining.dfs.core.windows.net/"
 		},
-		"trigger1_properties_typeProperties_scope": {
-			"value": "/subscriptions/8446571f-23ec-4eb5-ad6a-6638043f3281/resourceGroups/adf_training/providers/Microsoft.Storage/storageAccounts/input2adf"
+		"schedule_properties_pipeline8_parameters_temp_perameter": {
+			"value": [
+				45,
+				78,
+				7,
+				8,
+				9,
+				1,
+				2
+			]
 		},
 		"containerUri": {
 			"value": ""

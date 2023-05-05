@@ -51,9 +51,17 @@
 			"type": "string",
 			"defaultValue": "https://datalake3adftraining.dfs.core.windows.net/"
 		},
-		"trigger1_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/8446571f-23ec-4eb5-ad6a-6638043f3281/resourceGroups/adf_training/providers/Microsoft.Storage/storageAccounts/input2adf"
+		"schedule_properties_pipeline8_parameters_temp_perameter": {
+			"type": "array",
+			"defaultValue": [
+				45,
+				78,
+				7,
+				8,
+				9,
+				1,
+				2
+			]
 		},
 		"containerUri": {
 			"type": "string",
@@ -132,6 +140,9 @@
 					},
 					"cdc_onprimese_connectionString": {
 						"value": "[parameters('cdc_onprimese_connectionString')]"
+					},
+					"schedule_properties_pipeline8_parameters_temp_perameter": {
+						"value": "[parameters('schedule_properties_pipeline8_parameters_temp_perameter')]"
 					}
 				}
 			},
@@ -152,9 +163,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"trigger1_properties_typeProperties_scope": {
-						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},
