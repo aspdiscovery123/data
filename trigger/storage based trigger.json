@@ -1,0 +1,18 @@
+{
+	"name": "storage based trigger",
+	"properties": {
+		"description": "storage based trigger ",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/inputdata/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/8446571f-23ec-4eb5-ad6a-6638043f3281/resourceGroups/adf_training/providers/Microsoft.Storage/storageAccounts/input2adf",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
