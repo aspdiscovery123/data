@@ -3,27 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pipeline8",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"temp_perameter": [
-						45,
-						56,
-						89,
-						56,
-						1,
-						2,
-						3,
-						4,
-						5
-					]
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
