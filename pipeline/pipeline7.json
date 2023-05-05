@@ -1,0 +1,32 @@
+{
+	"name": "pipeline7",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var1",
+					"value": {
+						"value": "@pipeline().parameters.temp",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"temp": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"var1": {
+				"type": "String",
+				"defaultValue": "data factory"
+			}
+		},
+		"annotations": []
+	}
+}

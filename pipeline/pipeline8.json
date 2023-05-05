@@ -1,0 +1,54 @@
+{
+	"name": "pipeline8",
+	"properties": {
+		"activities": [
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.temp_perameter",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@greater(item(),7)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Filter1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "output",
+					"value": {
+						"value": "@activity('Filter1').output.Value",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"temp_perameter": {
+				"type": "array"
+			}
+		},
+		"variables": {
+			"output": {
+				"type": "Array"
+			}
+		},
+		"annotations": []
+	}
+}
