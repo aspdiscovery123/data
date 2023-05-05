@@ -1,0 +1,166 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf2testing"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricks2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks2'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"SqlServer1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1'"
+		},
+		"SqlServer1_onprimese_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1_onprimese'"
+		},
+		"cdc_onprimese_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'cdc_onprimese'"
+		},
+		"linked_service_adl_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linked_service_adl'"
+		},
+		"linked_service_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linked_service_blob'"
+		},
+		"sql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sql'"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&titles=Artificial_intelligence"
+		},
+		"linked_service_adl_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalake3adftraining.dfs.core.windows.net/"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/8446571f-23ec-4eb5-ad6a-6638043f3281/resourceGroups/adf_training/providers/Microsoft.Storage/storageAccounts/input2adf"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf2testing_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureDatabricks2_accessToken": {
+						"value": "[parameters('AzureDatabricks2_accessToken')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"linked_service_adl_accountKey": {
+						"value": "[parameters('linked_service_adl_accountKey')]"
+					},
+					"linked_service_blob_connectionString": {
+						"value": "[parameters('linked_service_blob_connectionString')]"
+					},
+					"sql_connectionString": {
+						"value": "[parameters('sql_connectionString')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"linked_service_adl_properties_typeProperties_url": {
+						"value": "[parameters('linked_service_adl_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf2testing_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SqlServer1_connectionString": {
+						"value": "[parameters('SqlServer1_connectionString')]"
+					},
+					"SqlServer1_onprimese_connectionString": {
+						"value": "[parameters('SqlServer1_onprimese_connectionString')]"
+					},
+					"cdc_onprimese_connectionString": {
+						"value": "[parameters('cdc_onprimese_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf2testing_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adf2testing_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf2testing_ArmTemplate_1')]"
+			]
+		}
+	]
+}

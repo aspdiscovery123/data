@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf2testing"
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks2_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": ""
+		},
+		"SqlServer1_onprimese_connectionString": {
+			"value": ""
+		},
+		"cdc_onprimese_connectionString": {
+			"value": ""
+		},
+		"linked_service_adl_accountKey": {
+			"value": ""
+		},
+		"linked_service_blob_connectionString": {
+			"value": ""
+		},
+		"sql_connectionString": {
+			"value": ""
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&titles=Artificial_intelligence"
+		},
+		"linked_service_adl_properties_typeProperties_url": {
+			"value": "https://datalake3adftraining.dfs.core.windows.net/"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/8446571f-23ec-4eb5-ad6a-6638043f3281/resourceGroups/adf_training/providers/Microsoft.Storage/storageAccounts/input2adf"
+		}
+	}
+}
