@@ -4,7 +4,26 @@
 		"description": "storage based trigger ",
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline8",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"temp_perameter": [
+						1,
+						2,
+						3,
+						4,
+						5,
+						89,
+						56,
+						2
+					]
+				}
+			}
+		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/inputdata/blobs/",
