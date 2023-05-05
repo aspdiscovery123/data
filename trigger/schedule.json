@@ -8,6 +8,17 @@
 				"pipelineReference": {
 					"referenceName": "pipeline8",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"temp_perameter": [
+						45,
+						78,
+						7,
+						8,
+						9,
+						1,
+						2
+					]
 				}
 			}
 		],
