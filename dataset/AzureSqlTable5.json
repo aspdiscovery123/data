@@ -1,0 +1,57 @@
+{
+	"name": "AzureSqlTable5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name_dataset": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "age",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sex",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bmi",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "children",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "smoker",
+				"type": "nvarchar"
+			},
+			{
+				"name": "region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "charges",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().table_name_dataset",
+				"type": "Expression"
+			}
+		}
+	}
+}
