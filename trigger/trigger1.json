@@ -3,14 +3,45 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline8",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"temp_perameter": [
+						45,
+						56,
+						89,
+						56,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Minute",
-				"interval": 16,
+				"frequency": "Week",
+				"interval": 1,
 				"startTime": "2023-05-05T14:15:00",
-				"timeZone": "India Standard Time"
+				"timeZone": "India Standard Time",
+				"schedule": {
+					"minutes": [
+						16
+					],
+					"hours": [
+						14
+					],
+					"weekDays": [
+						"Friday"
+					]
+				}
 			}
 		}
 	}
