@@ -1,0 +1,17 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 16,
+				"startTime": "2023-05-05T14:15:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
