@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "storage based trigger ",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
